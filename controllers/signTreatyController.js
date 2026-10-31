@@ -12,18 +12,36 @@ const locationSpan = document.getElementById("signLocation");
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
     (position) => {
-      const lat = position.coords.latitude.toFixed(2);
-      const lon = position.coords.longitude.toFixed(2);
-      locationSpan.textContent = `(${lat}, ${lon})`;
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`,
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          const address = data.address;
+          const placeName =
+            address.city ||
+            address.town ||
+            address.village ||
+            address.suburb ||
+            "Noida";
+          const stateName = address.state || "";
+          locationSpan.textContent = `${placeName}, ${stateName} 📍`;
+        })
+        .catch(() => {
+          locationSpan.textContent = `(${lat.toFixed(2)}, ${lon.toFixed(2)})`;
+        });
     },
     (error) => {
-      //   console.error("Error getting location:", error);
-      locationSpan.textContent = "India (Default)";
+      locationSpan.textContent = "Noida, India (Default)";
     },
   );
 } else {
   locationSpan.textContent = "Not supported";
 }
+
 function submitSorries() {
   const count = parseInt(document.getElementById("Sorries").value, 10);
   const container = document.getElementById("sorry-container");
