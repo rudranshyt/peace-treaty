@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffa1b2;
+    background-size: 24px 24px;
+    font-family: 'Nunito', sans-serif;
+    color: #4a3e43;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.main {
+    background: #ffffff;
+    border: 2px solid #ffd4e0;
+    border-radius: 24px;
+    padding: 40px 32px;
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 12px 30px rgba(230, 150, 170, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.main:hover {
+    transform: translateY(-4px);
+}
+
+h1 {
+    font-family: 'Fredoka', cursive;
+    color: #ff6b8b;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #7a6871;
+}
+
+.range-slider {
+    width: 100%;
+    accent-color: #ff6b8b;
+    cursor: pointer;
+}
+
+#slider-value {
+    font-family: 'Fredoka', cursive;
+    font-size: 1.5rem;
+    color: #ff5277;
+}
+
+#submitButton {
+    background: linear-gradient(135deg, #ff85a2, #ff6b8b);
+    color: #ffffff;
+    font-family: 'Fredoka', cursive;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(255, 107, 139, 0.35);
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+#submitButton:hover {
+    background: linear-gradient(135deg, #ff6b8b, #ff5277);
+    box-shadow: 0 8px 20px rgba(255, 107, 139, 0.45);
+    transform: scale(1.05);
+}
+
+#submitButton:active {
+    transform: scale(0.98);
+}
+
+#nameSign {
+    font-size: 0.9rem;
+    color: #8c7882;
+    margin-top: 16px;
+    line-height: 1.4;
+}
+
+/* Floating Sorry Bubbles Overlay */
+#sorry-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.sorry-bubble {
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff5277;
+    background: rgba(255, 240, 243, 0.95);
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid #ffb6c1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: floatUp 2.5s ease-out forwards;
+    white-space: nowrap;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0.8) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50vh) scale(1.1) rotate(10deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) scale(1) rotate(-10deg);
+    }
+}

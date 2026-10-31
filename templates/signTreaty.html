@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Treaty</title>
+    <link rel="stylesheet" href="../styles/signTreaty.css">
+</head>
+
+<body>
+    <div class="main">
+        <h1>How many sorries you want?</h1>
+        <div class="slider-container">
+            <label for="Sorries">No. of Sorries:</label>
+            <input type="range" id="Sorries" name="Sorries" min="0" max="100" value="5" class="range-slider">
+            <span id="slider-value">5</span>
+            <button id="submitButton" onclick="submitSorries()">E-Sign</button>
+            <p id="nameSign">Signature: Vanshika &mdash; <span id="signDate"></span> | Location: <span
+                    id="signLocation">Fetching location...</span></p>
+        </div>
+    </div>
+
+    <!-- Overlay container for animated sorries -->
+    <div id="sorry-container"></div>
+
+    <script src="../controllers/signTreatyController.js"></script>
+</body>
+
+</html>
